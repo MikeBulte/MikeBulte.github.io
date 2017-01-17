@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript P02L01</title>
+</head>
+<body>
+
+<button onclick="askName()">
+    Naam invoeren
+</button>
+
+<br>
+<br>
+
+<button onclick="askAge()">
+    Leeftijd Invoeren
+</button>
+
+<br>
+
+<p id="leeftijdUser">
+
+</p>
+<br>
+
+<button onclick="askAdress()">
+    Adres Invoeren
+</button>
+
+<br>
+<br>
+
+<button onclick="printArray()">
+    Print Array
+</button>
+
+<p id="arrayParagraph">
+
+</p>
+
+<a href="index.html">Terug naar index</a>
+
+<script>
+//Strict mode aanzetten
+"use strict";
+
+//Array Initializeren
+var userInfoArray = [];
+
+    function askName() {
+        var nameUser = prompt("Voer uw naam in");
+
+        if (nameUser != null) {
+            console.log("User naam is " + nameUser);
+            alert("Uw naam is " + nameUser);
+            userInfoArray[0] = nameUser;
+        }
+    }
+
+    function  askAge() {
+        var ageUser = prompt("Voer uw leeftijd in");
+        var ageUser18Plus;
+
+        console.log("Ingevoerde leeftijd is " + ageUser);
+        if (ageUser != null) {
+            if(ageUser >= 18) {
+                console.log("User is ouder dan 18");
+                ageUser18Plus = ". Dat is ouder dan 18!";
+            } else {
+                console.log("User is niet ouder dan 18");
+                ageUser18Plus = ". Dat is niet ouder dan 18!";
+            }
+            document.getElementById("leeftijdUser").innerHTML = "Uw leeftijd is " + ageUser + ageUser18Plus;
+            userInfoArray[1] = ageUser;
+        }
+    }
+
+    function askAdress() {
+        var adressUser = prompt("Voer uw adres in");
+
+        console.log("User adres is " + adressUser);
+        userInfoArray[2] = adressUser;
+    }
+
+    function printArray() {
+        //Print alles in de array uit als een string in een paragraph.
+        document.getElementById("arrayParagraph").innerHTML = userInfoArray;
+    }
+</script>
+</body>
+</html>
